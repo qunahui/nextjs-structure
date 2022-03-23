@@ -1,0 +1,44 @@
+.flex-parent {
+  display: flex;
+  flex-direction: row;
+}
+.flex-child {
+  padding: 1em;
+  min-height: 100vh;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.loading-spinner {
+  border-radius: 50%;
+  width: 180px;
+  height: 180px;
+  border: 4px solid var(--cl10);
+  border-top-color: var(--cl1);
+  -webkit-animation: rotation 0.8s infinite cubic-bezier(0.6, 0.3, 0.3, 0.6);
+  animation: rotation 0.8s infinite cubic-bezier(0.6, 0.3, 0.3, 0.6);
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-logo {
+  background-size: 95px 95px !important;
+  height: 95px;
+  width: 95px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}

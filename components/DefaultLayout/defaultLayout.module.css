@@ -1,0 +1,6 @@
+.switch-locale-item {
+  display: flex;
+}
+.switch-locale-item svg {
+  margin-right: 5px;
+}

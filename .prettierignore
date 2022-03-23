@@ -1,0 +1,17 @@
+.github
+
+.next
+
+.assets
+
+log
+out
+
+node_modules
+yarn.lock
+package-lock.json
+
+Gemfile.lock
+
+public
+README.md

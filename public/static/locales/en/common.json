@@ -1,0 +1,20 @@
+{
+  "404": "404 - Page Not Found",
+  "pageNotFound": "Page Not Found",
+  "backToHome": "Back to home",
+  "cancel": "Cancel",
+  "export": "Export data",
+  "exportedMessage": "Data exported. Please check your email !",
+  "exportAllData": "Export all data",
+  "exportAsFilter": "Export as current list",
+  "exportSuccess": "Export data successfully",
+  "exportFailure": "Export data failed",
+  "exportFilterOnly": "Only export by service is currently supported",
+  "pending": "Pending",
+  "approved": "Approved",
+  "processing": "Processing",
+  "cancelled": "Canceled",
+  "refresh": "Refresh",
+  "search-by-producer-name": "Fill in producer name",
+  "search-by-producer-name-not-found": "Not found"
+}

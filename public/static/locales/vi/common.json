@@ -1,0 +1,21 @@
+{
+  "404": "404 - Không tìm thấy trang",
+  "pageNotFound": "Không tìm thấy trang",
+  "backToHome": "Trở về trang chủ",
+  "cancel": "Hủy",
+  "export": "Xuất dữ liệu",
+  "exportedMessage": "Dữ liệu đã được xuất. Vui lòng kiểm tra email !",
+  "exportAllData": "Xuất toàn bộ dữ liệu",
+  "exportAsFilter": "Xuất theo danh sách hiện tại",
+  "exportSuccess": "Xuất dữ liệu thành công",
+  "exportFailure": "Xuất dữ liệu không thành công",
+  "exportFilterOnly": "Hệ thống chỉ hỗ trợ xuất file theo từng dịch vụ",
+  "pending": "Chờ duyệt",
+  "approved": "Đã duyệt",
+  "processing": "Đang duyệt",
+  "cancelled": "Đã từ chối",
+  "refresh": "Làm mới",
+  "search-by-producer-name": "Nhập tên nhà cung",
+  "search-by-producer-name-not-found": "Không tìm thấy kết quả trùng khớp",
+  "search-by-producer-name-placeholder": "Nhập vào tên nhà cung để tìm kiếm"
+}

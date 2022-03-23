@@ -1,0 +1,30 @@
+.page-not-found-wrapper {
+  height: 100vh;
+}
+.page-not-found {
+  display: grid;
+  place-content: center;
+  margin-top: 2rem;
+  .page-not-found-image {
+    height: 350px;
+    max-width: 90%;
+  }
+  .page-not-found-text {
+    text-align: center;
+    font-weight: bold;
+    font-size: 32px;
+    text-transform: uppercase;
+    color: #4f4f4f;
+    margin: 1rem 0;
+  }
+  .back-home-button {
+    margin: 0 auto;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: #ffffff;
+    text-transform: uppercase;
+    width: fit-content;
+  }
+}

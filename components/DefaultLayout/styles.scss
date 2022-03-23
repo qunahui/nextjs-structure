@@ -1,0 +1,231 @@
+.header {
+  padding: 0 1rem !important;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 10;
+  .fullname {
+    font-weight: 500;
+    text-align: right;
+    color: var(--cl2);
+    padding: 0.08rem;
+  }
+  .role {
+    font-size: 12px;
+    font-weight: 500;
+    text-align: right;
+    color: var(--cl5);
+    padding: 0.08rem;
+  }
+  .section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 2rem;
+  }
+  .account-info {
+    flex-direction: row !important;
+    align-items: center;
+    .avatar {
+      margin-right: 0.5rem;
+      margin-left: 0.5rem;
+    }
+  }
+  .pointer {
+    cursor: pointer;
+  }
+}
+.header-with-logo {
+  justify-content: space-between;
+  padding: 0 1rem 0 0 !important;
+  .logo-wrapper {
+    width: 180px;
+    svg {
+      height: 38px;
+    }
+  }
+}
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: var(--cl1);
+  img {
+    width: auto;
+    height: 64px;
+  }
+}
+.ant-layout-header {
+  background-color: #fff !important;
+  line-height: normal !important;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1) !important;
+  // box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.default-layout {
+  .site-layout {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+  .ant-layout-sider {
+    background-color: #fff;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    .ant-menu {
+      .ant-menu-item,
+      .ant-menu-submenu > .ant-menu-submenu-title {
+        padding-left: 16px !important;
+        gap: 8px;
+      }
+      .selected-menu-item,
+      .selected-submenu-item > .ant-menu-submenu-title {
+        border-left: 4px solid var(--cl1);
+        padding-left: 12px !important;
+        background-color: var(--cl11);
+        color: var(--cl1) !important;
+        svg {
+          path {
+            fill: var(--cl1);
+          }
+        }
+        .border-left {
+          background-color: var(--cl1);
+        }
+      }
+    }
+  }
+  .ant-layout-sider-trigger {
+    background-color: #fff;
+    color: #000;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  }
+  .ant-menu.ant-menu-dark,
+  .ant-menu-dark .ant-menu-sub,
+  .ant-menu.ant-menu-dark .ant-menu-sub {
+    background: #fff;
+  }
+  .ant-menu.ant-menu-dark .ant-menu-item > span > a {
+    color: #000;
+  }
+  .ant-menu-dark .ant-menu-item:hover > span > a {
+    color: #fff;
+  }
+  .ant-menu-item {
+    display: flex;
+    align-items: center;
+    color: var(--cl2);
+    font-weight: 500;
+    transition: all 0ms;
+  }
+  .ant-menu-item:hover,
+  .ant-menu-item:focus {
+    background-color: var(--cl11);
+    a {
+      color: var(--cl1);
+    }
+  }
+  .ant-menu-item-active {
+    color: black !important;
+  }
+  .ant-layout-content {
+    flex: auto;
+    overflow: auto;
+  }
+  .selected-menu-item {
+    background-color: var(--cl11);
+    color: var(--cl1) !important;
+    .border-left {
+      background-color: var(--cl1);
+    }
+  }
+  .ant-menu-vertical {
+    margin-top: 1rem;
+    border-right: 0;
+  }
+  .ant-menu-vertical .ant-menu-item {
+    padding: 0;
+  }
+  .ant-menu-item:not(:last-child) {
+    margin: 0;
+  }
+  .menu-item {
+    z-index: 1;
+    .border-left {
+      height: 100%;
+      width: 0.25rem;
+      margin-right: 1rem;
+    }
+  }
+  .sider:hover {
+    .collapse-button {
+      display: block;
+    }
+  }
+  .sider {
+    position: relative;
+    .sider-footer-banner {
+      position: absolute;
+      bottom: 0;
+    }
+    .collapse-button {
+      display: none;
+      transition: 0ms;
+      cursor: pointer;
+      position: absolute;
+      right: -0.75rem;
+      top: 50%;
+      z-index: 10;
+      border: 1px solid var(--cl6);
+      border-radius: 100%;
+      background-color: #fff;
+      width: 1.5rem;
+      text-align: center;
+      svg {
+        transition: all 0ms;
+      }
+    }
+    .collapse-button:hover {
+      background-color: var(--cl1);
+      color: #fff;
+    }
+  }
+  .footer-banner {
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+.account-info-title {
+  font-weight: bold;
+  color: var(--cl2);
+  padding: 5px 12px;
+}
+.account-info-item {
+  display: flex;
+  align-items: center;
+  color: #000;
+  svg {
+    margin-right: 0.5rem;
+  }
+}
+
+.default-layout .border-left {
+  width: 0.25rem;
+  margin-right: 1rem;
+}
+
+.submenu-circle {
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  border: 1px solid var(--cl5);
+  margin-right: 0.5rem;
+}
+
+.submenu-circle-active {
+  background-color: var(--cl1);
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  margin-right: 0.5rem;
+}

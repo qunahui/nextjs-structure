@@ -1,0 +1,93 @@
+name: Build and deploy Next Application
+
+on:
+  push:
+    branches:
+      - dev
+      - main
+
+jobs:
+  run_build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install and Build Staging
+        if: github.ref == 'refs/heads/dev'
+        run: | 
+          yarn install --frozen-lockfile
+          yarn build:staging
+      - name: Install and Build Production 
+        if: github.ref == 'refs/heads/main'
+        run: | 
+          yarn install --frozen-lockfile
+          yarn build:production
+      - name: Ssh agent
+        uses: webfactory/ssh-agent@v0.4.1
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: copy build folder to server staging 
+        if: github.ref == 'refs/heads/dev'
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.PORT }}
+          source: ".next/"
+          target: "/home/deploy/nextjs_staging/shared/.next"
+          strip_components: 1
+      - name: copy build folder to server production 
+        if: github.ref == 'refs/heads/main'
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.PORT }}
+          source: ".next/"
+          target: "/home/deploy/nextjs_production/shared/.next"
+          strip_components: 1
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: run_build
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby 2.7
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+      - name: Cache Ruby Gems
+        uses: actions/cache@v2
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+      - name: Ssh agent
+        uses: webfactory/ssh-agent@v0.4.1
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: Deploy staging
+        if: github.ref == 'refs/heads/dev'
+        run: | 
+          bundle install --jobs 4 --retry 3
+          bundle exec cap staging deploy
+      - name: Deploy production
+        if: github.ref == 'refs/heads/main'
+        run: | 
+          bundle install --jobs 4 --retry 3
+          bundle exec cap production deploy
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}

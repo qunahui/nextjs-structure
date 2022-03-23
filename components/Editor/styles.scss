@@ -1,0 +1,18 @@
+.ql-bubble {
+  border: 1px solid var(--cl5);
+  border-radius: 6px;
+}
+.ql-container {
+  min-height: 14rem;
+}
+.ql-editor.ql-blank::before {
+  font-style: normal;
+  color: var(--cl5);
+}
+.ql-editor img {
+  height: auto;
+}
+.ql-editor iframe,
+.ql-editor video {
+  pointer-events: none;
+}
